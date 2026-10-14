@@ -1,0 +1,60 @@
+/* bor-figures-style —— 白底极简发丝线配图
+ *
+ * 换配色只改下面这 4 行：--ink（主色）/ --red（辅色）/ --jade（第三色）/ --gold（装饰）
+ * 其余不用动。
+ */
+
+/* 字体用相对路径：base.css 和 fonts/ 放同一层，file:// 和 http:// 都能用 */
+@font-face{font-family:'SerifSC';src:url('fonts/NotoSerifSC-VF.ttf') format('truetype');font-weight:200 900;}
+@font-face{font-family:'SansSC';src:url('fonts/NotoSansSC-VF.ttf') format('truetype');font-weight:100 900;}
+
+:root{
+  /* ---- 配色 ---- */
+  --ink:#053D3E;      /* 主色：标题、主数据系列 */
+  --red:#A5271B;      /* 辅色：强调、对比、第二数据系列 */
+  --jade:#3E7A6E;     /* 第三色：次级信息 */
+  --gold:#B9914E;     /* 装饰：标题下/图例下的短横线 */
+
+  /* ---- 中性色（一般不用改）---- */
+  --body:#54615F;     /* 正文 */
+  --gray:#8C9A96;     /* 弱化文字 */
+  --faint:#B9C0BC;    /* 编号、轴标签 */
+  --lead:#B4BC9C;     /* 引线、列表前导短横 */
+  --line:#CBD2C6;     /* 细线 */
+  --rule:#E4E7DD;     /* 极细分隔、网格线 */
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#fff;}
+body{
+  font-family:'SerifSC','SimSun',serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"palt" 1;
+}
+
+/* 画布：高度必须和 body 高度写成同一个值 */
+.canvas{position:relative;background:#fff;overflow:hidden;}
+
+/* ---- 页眉：标题居中 + 通栏发丝线。
+        右下角不写任何图注 ---- */
+.fig-head{
+  display:flex;align-items:baseline;justify-content:center;text-align:center;
+  padding:0 0 13px;border-bottom:1px solid var(--line);margin-bottom:26px;
+}
+.fig-title{font-family:'SerifSC',serif;font-size:34px;font-weight:700;
+  letter-spacing:.1em;line-height:1.15;color:var(--ink);}
+
+/* ---- 金色短横线：默认水平居中（配合「一切居中」的排版习惯）---- */
+.rule{width:30px;height:1.5px;background:var(--gold);margin:0 auto;}
+
+/* ---- 竖向分隔：列与列之间，不用边框盒子 ---- */
+.vr{position:absolute;top:0;bottom:0;width:1px;background:var(--rule);}
+
+/* ---- 列表项的前导短横（比圆点克制）---- */
+li{list-style:none;}
+li::before{content:'';position:absolute;left:0;top:.62em;width:4px;height:1px;background:var(--line);}
+
+/* ---- 数据标签统一用这个（白描边防压线）----
+   配合 SVG 属性使用：text-anchor="middle" paint-order="stroke"
+   stroke="#fff" stroke-width="6" stroke-linejoin="round" */
