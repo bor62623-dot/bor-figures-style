@@ -44,10 +44,25 @@ git clone https://github.com/bor62623-dot/bor-figures-style.git \
 ## 目录
 
 ```
-SKILL.md            定义与约束（主体）+ 数据图专项 + 自检清单
-assets/base.css     一种已验证的实现：换成实际配色只改顶部 4 个变量
-scripts/shot.sh     HTML → 无头 Chromium 截图，顺带量出内容底边、报告高度该调多少
+SKILL.md               定义与约束（主体）+ 数据图专项 + 自检清单
+assets/base.css        一种已验证的实现：换成实际配色只改顶部 4 个变量
+assets/examples/       示例库 —— 白底发丝线 / 蓝红信息图 / 同一约束的两种变体
+scripts/shot.sh        HTML → 无头 Chromium 截图，顺带量出内容底边、报告高度该调多少
 ```
+
+示例库不是模板，是**结构参考**：看层级怎么分、线用在哪、留白多少，别抄配色和字体。同一份内容在 [`variants/`](assets/examples/variants/) 里有玻璃和手绘两种完全不同的参数实现，可以对照着理解「约束不变、参数变」。
+
+## 示例
+
+| 白底发丝线 · 文档配图 | 蓝红信息图 · 示意图 |
+|---|---|
+| ![](assets/examples/document/01-loop.png) | ![](assets/examples/diagram/03-solution-map.jpg) |
+
+| 玻璃 | 黑白手绘 |
+|---|---|
+| ![](assets/examples/variants/01-glass.png) | ![](assets/examples/variants/02-handdrawn.png) |
+
+前两张是两套不同的参数，后两张是同一份内容的两种完全不同的呈现 —— 四张都满足同一套六条约束。完整清单见 [`assets/examples/`](assets/examples/)。
 
 ## 快速开始
 
